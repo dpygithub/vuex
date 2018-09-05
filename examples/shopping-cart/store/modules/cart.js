@@ -46,10 +46,12 @@ const actions = {
   },
 
   addProductToCart ({ state, commit }, product) {
+    debugger;
     commit('setCheckoutStatus', null)
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)
       if (!cartItem) {
+        debugger;
         commit('pushProductToCart', { id: product.id })
       } else {
         commit('incrementItemQuantity', cartItem)
@@ -63,6 +65,7 @@ const actions = {
 // mutations
 const mutations = {
   pushProductToCart (state, { id }) {
+    debugger;
     state.items.push({
       id,
       quantity: 1
